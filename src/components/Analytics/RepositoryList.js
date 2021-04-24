@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Input } from "antd";
 import { REPOSITORIES } from "../../data/repositories";
 
-const RepositoryList = ({ repositoryCallback }) => {
+const RepositoryList = ({ repositoryCallback, drawerClose }) => {
   const [searchRepository, setSearchRepository] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -32,12 +32,23 @@ const RepositoryList = ({ repositoryCallback }) => {
         onChange={(e) => handleSearch(e.target.value)}
       />
       {searchResults.map((item, index) => (
-        <p key={index} value={item} onClick={(e) => repositoryCallback(item)}>
+        <p
+          key={index}
+          value={item}
+          onClick={(e) => {
+            repositoryCallback(item);
+            drawerClose();
+          }}
+        >
           {item.repo}
         </p>
       ))}
     </div>
   );
+};
+
+RepositoryList.defaultProps = {
+  drawerClose: () => {},
 };
 
 export default RepositoryList;

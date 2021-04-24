@@ -12,4 +12,6 @@ export const REPOSITORIES = [
   { owner: "ansible-collections", repo: "community.yang" },
   { owner: "ansible-collections", repo: "ansible.utils" },
   { owner: "ansible-network", repo: "resource_module_models" },
+  { owner: "facebook", repo: "react" },
+  { owner: "ansible", repo: "ansible" },
 ];

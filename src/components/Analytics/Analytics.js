@@ -4,6 +4,7 @@ import RepositoryAnalytics from "./RepositoryAnalytics";
 import { Button, Card, Drawer } from "antd";
 import { REPOSITORIES } from "../../data/repositories";
 import { UnorderedListOutlined } from "@ant-design/icons";
+import moment from "moment";
 
 const Analytics = () => {
   // Default repository is the first repository object in the REPOSITORIES list
@@ -50,7 +51,10 @@ const Analytics = () => {
           drawerStyle={{ backgroundColor: "#3d5861" }}
         >
           <div className="repo-list-mobile">
-            <RepositoryList repositoryCallback={repositoryCallback} />
+            <RepositoryList
+              repositoryCallback={repositoryCallback}
+              drawerClose={onClose}
+            />
           </div>
         </Drawer>
       </div>

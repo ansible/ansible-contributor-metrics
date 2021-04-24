@@ -1,8 +1,9 @@
+import { BarChartOutlined, InfoCircleFilled } from "@ant-design/icons";
+import { Tooltip } from "antd";
 import { Bar } from "react-chartjs-2";
 
 const BarGraph = ({ dataGroupedByMonth: data, label1, label2, heading }) => {
-  // console.log(totalOpen);
-  // console.log(data);
+  // console.log("DATA FROM GRAPH", data);
   const dataToPlot = {
     labels: data.map((item) => item.Month),
     datasets: [
@@ -57,8 +58,13 @@ const BarGraph = ({ dataGroupedByMonth: data, label1, label2, heading }) => {
     ],
   };
 
+  const message = "Bar chart message";
+
   return (
     <div className="chart-bar">
+      <Tooltip title={message} placement={"rightTop"}>
+        <BarChartOutlined />
+      </Tooltip>
       <h3>{heading}</h3>
       <Bar data={dataToPlot} />
     </div>

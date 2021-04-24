@@ -5,16 +5,16 @@ import { REPOSITORIES } from "../data/repositories";
 Query structure that is built dynamically:
 
 query {
-    REPONAME_OPEN_ISSUE: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:issue is:open", last: 100) {
+    REPOSITORY_OPEN_ISSUE: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:issue is:open", last: 100) {
       issueCount
     }
-    REPONAME_CLOSED_ISSUE: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:issue is:closed", last: 100) {
+    REPOSITORY_CLOSED_ISSUE: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:issue is:closed", last: 100) {
       issueCount
     }
-    REPONAME_OPEN_PR: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:pr is:open", last: 100) {
+    REPOSITORY_OPEN_PR: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:pr is:open", last: 100) {
       issueCount
     }
-    REPONAME_CLOSED_PR: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:pr is:merged", last: 100) {
+    REPOSITORY_CLOSED_PR: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:pr is:merged", last: 100) {
       issueCount
     }
 }
@@ -100,6 +100,8 @@ const DEVELOPER_REPO_WISE_ISSUE_PR = (selectedDeveloper) => {
         }
 
     `;
+
+  console.log("Query String", innerQuery(selectedDeveloper));
 
   return gql`
     ${query}

@@ -46,15 +46,24 @@ export const PR_COLUMNS = [
     width: 250,
   },
   {
-    Header: "Updated At",
-    Footer: "Updated At",
-    accessor: "node.updatedAt",
-    Cell: ({ value }) => {
-      return moment(new Date(value)).format("ll");
-    },
+    Header: "Number",
+    Footer: "Number",
+    accessor: "node.number",
+    Filter: SelectColumnFilter,
     disableFilters: true,
+    disableSortBy: true,
     width: 100,
   },
+  // {
+  //   Header: "Updated At",
+  //   Footer: "Updated At",
+  //   accessor: "node.updatedAt",
+  //   Cell: ({ value }) => {
+  //     return moment(new Date(value)).format("ll");
+  //   },
+  //   disableFilters: true,
+  //   width: 100,
+  // },
   {
     Header: "Author",
     Footer: "Author",

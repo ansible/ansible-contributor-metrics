@@ -1,25 +1,31 @@
-import { Row, Col, Empty } from "antd";
+import { Row, Col, Empty, Tooltip } from "antd";
 import LineGraph from "./LineGraph";
 import BarGraph from "./BarGraph";
-import DoughnutGraph from "./DoughnutGraph";
+import PieChart from "./PieChart";
+import { InfoCircleFilled, FundOutlined } from "@ant-design/icons";
 const AnalyticGraphs = ({
-  mergedIssueData,
-  mergedPRData,
   totalOpenIssueCount,
   totalCloseIssueCount,
   totalOpenPRCount,
   totalMergePRCount,
   averageDaysIssueClosed,
   averageDaysPRMerged,
+  issuesStatData,
+  prsStatData,
 }) => {
+  console.log("FROMANALYTICS", issuesStatData);
+  console.log("FROMANALYTICS", prsStatData);
+
+  const message = "Average stats component message";
+
   return (
     <>
       <div className="analytic-graphs">
         <Row>
           <Col span={12}>
-            {mergedIssueData && (
+            {issuesStatData && (
               <LineGraph
-                dataGroupedByMonth={mergedIssueData}
+                dataGroupedByMonth={issuesStatData}
                 label="Issues closed %"
                 heading="Issues Trend"
               />
@@ -29,7 +35,7 @@ const AnalyticGraphs = ({
             <Row>
               <Col span={12}>
                 {totalOpenIssueCount || totalCloseIssueCount ? (
-                  <DoughnutGraph
+                  <PieChart
                     heading="Issue Chart"
                     label1="Open Issues"
                     data1={totalOpenIssueCount}
@@ -45,7 +51,7 @@ const AnalyticGraphs = ({
               </Col>
               <Col span={12}>
                 {totalOpenPRCount || totalMergePRCount ? (
-                  <DoughnutGraph
+                  <PieChart
                     heading="Pull Request Chart"
                     label1="Open PRs"
                     data1={totalOpenPRCount}
@@ -64,6 +70,9 @@ const AnalyticGraphs = ({
               <Col span={12}>
                 {averageDaysIssueClosed ? (
                   <div className="issue-close-average">
+                    <Tooltip title={message} placement={"rightTop"}>
+                      <FundOutlined />
+                    </Tooltip>
                     <h3>Avg. days to close an issue</h3>
                     <h2>{averageDaysIssueClosed}</h2>
                   </div>
@@ -79,6 +88,9 @@ const AnalyticGraphs = ({
               <Col span={12}>
                 {averageDaysPRMerged ? (
                   <div className="pr-merge-average">
+                    <Tooltip title={message} placement={"rightTop"}>
+                      <FundOutlined />
+                    </Tooltip>
                     <h3>Avg. days to merge a PR</h3>
                     <h2>{averageDaysPRMerged}</h2>
                   </div>
@@ -94,9 +106,9 @@ const AnalyticGraphs = ({
         </Row>
         <Row>
           <Col span={12}>
-            {mergedIssueData && (
+            {issuesStatData && (
               <BarGraph
-                dataGroupedByMonth={mergedIssueData}
+                dataGroupedByMonth={issuesStatData}
                 label1="Open Issue"
                 label2="Closed Issue"
                 heading="Issue Categories"
@@ -104,9 +116,9 @@ const AnalyticGraphs = ({
             )}
           </Col>
           <Col span={12}>
-            {mergedPRData && (
+            {prsStatData && (
               <BarGraph
-                dataGroupedByMonth={mergedPRData}
+                dataGroupedByMonth={prsStatData}
                 label1="Open PR"
                 label2="Merged PR"
                 heading="Pull Request Categories"
@@ -119,9 +131,9 @@ const AnalyticGraphs = ({
       <div className="analytic-graphs-mobile">
         <Row>
           <Col span={24}>
-            {mergedIssueData && (
+            {issuesStatData && (
               <LineGraph
-                dataGroupedByMonth={mergedIssueData}
+                dataGroupedByMonth={issuesStatData}
                 label="Issues closed %"
                 heading="Issues Trend"
               />
@@ -133,7 +145,7 @@ const AnalyticGraphs = ({
             <Row>
               <Col span={12}>
                 {totalOpenIssueCount || totalCloseIssueCount ? (
-                  <DoughnutGraph
+                  <PieChart
                     heading="Issue Chart"
                     label1="Open Issues"
                     data1={totalOpenIssueCount}
@@ -149,7 +161,7 @@ const AnalyticGraphs = ({
               </Col>
               <Col span={12}>
                 {totalOpenPRCount || totalMergePRCount ? (
-                  <DoughnutGraph
+                  <PieChart
                     heading="Pull Request Chart"
                     label1="Open PRs"
                     data1={totalOpenPRCount}
@@ -198,9 +210,9 @@ const AnalyticGraphs = ({
         </Row>
         <Row>
           <Col span={24}>
-            {mergedIssueData && (
+            {issuesStatData && (
               <BarGraph
-                dataGroupedByMonth={mergedIssueData}
+                dataGroupedByMonth={issuesStatData}
                 label1="Open Issue"
                 label2="Closed Issue"
                 heading="Issue Categories"
@@ -210,9 +222,9 @@ const AnalyticGraphs = ({
         </Row>
         <Row>
           <Col span={24}>
-            {mergedPRData && (
+            {prsStatData && (
               <BarGraph
-                dataGroupedByMonth={mergedPRData}
+                dataGroupedByMonth={prsStatData}
                 label1="Open PR"
                 label2="Merged PR"
                 heading="Pull Request Categories"

@@ -1,3 +1,5 @@
+import * as _ from "lodash";
+
 const tempFunction = (type, month, count1, count2 = 0) => {
   let data = {};
   if (type === "open") {
@@ -23,6 +25,28 @@ const tempFunction = (type, month, count1, count2 = 0) => {
 };
 
 export const assembleData = (array1, array2, type) => {
+  if (array1.length === array2.length) {
+    return _.chain([])
+      .zip(array1, array2)
+      .flatten()
+      .filter((data) => data !== undefined)
+      .map((data, index) => {
+        if (index % 2 === 0) {
+          return {
+            Month: data.Month,
+            open: 0,
+            [type]: data.Count,
+          };
+        } else {
+          return {
+            Month: data.Month,
+            [type]: 0,
+            open: data.Count,
+          };
+        }
+      })
+      .value();
+  }
   return array1.map((issue) => {
     const { Month, Count } = issue;
 
