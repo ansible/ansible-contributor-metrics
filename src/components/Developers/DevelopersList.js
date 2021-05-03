@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Input } from "antd";
+import { Input, List } from "antd";
 import { USERS } from "../../data/users";
 
 const DeveloperList = ({ developerCallback, drawerClose }) => {
@@ -32,18 +32,20 @@ const DeveloperList = ({ developerCallback, drawerClose }) => {
         value={searchName}
         onChange={(e) => handleSearch(e.target.value)}
       />
-      {searchResults.map((item, index) => (
-        <p
-          key={index}
-          value={item}
-          onClick={(e) => {
-            developerCallback(item);
-            drawerClose();
-          }}
-        >
-          {item}
-        </p>
-      ))}
+      <List>
+        {searchResults.map((item, index) => (
+          <p
+            key={index}
+            value={item}
+            onClick={(e) => {
+              developerCallback(item);
+              drawerClose();
+            }}
+          >
+            {item}
+          </p>
+        ))}
+      </List>
     </div>
   );
 };

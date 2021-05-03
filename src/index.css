@@ -337,6 +337,11 @@ a.ant-typography {
   width: auto;
   /* margin: 10px 0px; */
 }
+.developer-list .ant-list {
+  margin-top: 10px;
+  height: 750px;
+  overflow: auto;
+}
 .developer-list p {
   margin: 6px 0px;
   width: auto;
@@ -349,7 +354,6 @@ a.ant-typography {
 }
 .developer-list p:hover {
   color: var(--primary-color-light);
-  transform: scale(1.02);
 }
 
 .overall-info {
@@ -502,6 +506,11 @@ a.ant-typography {
   width: auto;
   /* margin: 10px 0px; */
 }
+.repository-list .ant-list {
+  margin-top: 10px;
+  height: 750px;
+  overflow: auto;
+}
 .repository-list p {
   margin: 6px 0px;
   width: auto;
@@ -514,7 +523,6 @@ a.ant-typography {
 }
 .repository-list p:hover {
   color: var(--primary-color-light);
-  transform: scale(1.02);
 }
 
 .overall-graphs {

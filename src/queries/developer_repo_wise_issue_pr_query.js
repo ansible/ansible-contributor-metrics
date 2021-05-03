@@ -20,7 +20,7 @@ query {
 }
 */
 
-const removeSpecialCharacters = (str) => str.replace(/[^a-zA-Z ]/g, "");
+const removeSpecialCharacters = (str) => str.replace(/[^a-zA-Z0-9 ]/g, "");
 
 const open_pr_qs = (repo, owner, selectedDeveloper) =>
   `"repo:${owner}/${repo} type:pr is:open author:${selectedDeveloper}"`;

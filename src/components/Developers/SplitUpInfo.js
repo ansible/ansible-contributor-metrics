@@ -11,7 +11,7 @@ const SpiltUpInfo = ({ selectedDeveloper }) => {
 
   return (
     <div className="splitup-info">
-      <h2>Overall repository wise details of {selectedDeveloper}</h2>
+      <h2>Overall repository wise contributions of {selectedDeveloper}</h2>
       {loading && <Skeleton />}
       {error && <p>{error}</p>}
       {data && <RepositoryWiseDetails data={data} />}
