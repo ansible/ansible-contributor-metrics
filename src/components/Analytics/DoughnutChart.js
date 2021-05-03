@@ -2,8 +2,9 @@ import { InfoCircleFilled, PieChartOutlined } from "@ant-design/icons";
 import { Tooltip } from "antd";
 import React from "react";
 import { Doughnut, Pie } from "react-chartjs-2";
+import { Equation } from "react-equation";
 
-const PieChart = ({ heading, label1, data1, label2, data2 }) => {
+const DoughnutChart = ({ heading, label1, data1, label2, data2 }) => {
   // console.log("DOUGHNUT DATA", data1, data2);
   const dataToPlot = {
     labels: [label2, label1],
@@ -43,17 +44,26 @@ const PieChart = ({ heading, label1, data1, label2, data2 }) => {
     },
   };
 
-  const message = "Doughnut graph message";
+  const contentForInfo = (
+    <div style={{ textAlign: "center" }}>
+      <p>
+        The {heading === "Issue Chart" ? "issues" : "pull requests"} doughnut
+        chart is a representation of the current condition of the repository in
+        terms of '% of{" "}
+        {heading === "Issue Chart" ? "issues closed" : "pull requests merged"}.
+      </p>
+    </div>
+  );
 
   return (
     <div className="chart-pie">
-      <Tooltip title={message} placement={"rightTop"}>
+      <Tooltip title={contentForInfo}>
         <PieChartOutlined />
       </Tooltip>
       <h3>{heading}</h3>
-      <Pie data={dataToPlot} options={option} />
+      <Doughnut data={dataToPlot} options={option} />
     </div>
   );
 };
 
-export default PieChart;
+export default DoughnutChart;

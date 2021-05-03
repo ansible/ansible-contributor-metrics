@@ -58,11 +58,21 @@ const BarGraph = ({ dataGroupedByMonth: data, label1, label2, heading }) => {
     ],
   };
 
-  const message = "Bar chart message";
+  const contentForInfo = (
+    <div style={{ textAlign: "center" }}>
+      <p>
+        The {heading === "Issue Categories" ? "issues" : "pull requests"} bar
+        graph views the number of{" "}
+        {heading === "Issue Categories" ? "issues" : "pull requests"} with
+        'open' or {heading === "Issue Categories" ? "'closed'" : "'merged'"}{" "}
+        status in a specific repository over a period of 15 months.
+      </p>
+    </div>
+  );
 
   return (
     <div className="chart-bar">
-      <Tooltip title={message} placement={"rightTop"}>
+      <Tooltip title={contentForInfo}>
         <BarChartOutlined />
       </Tooltip>
       <h3>{heading}</h3>

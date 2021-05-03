@@ -8,7 +8,7 @@ import { groupByMonth } from "../../utils/groupByMonth";
 import LineGraph from "./LineGraph";
 import { assembleData } from "../../utils/assemble-data";
 import BarGraph from "./BarGraph";
-import DoughnutGraph from "./PieChart";
+import DoughnutGraph from "./DoughnutChart";
 import { calculateAverageDays } from "../../utils/calculateAverageDays";
 import { Row, Col, PageHeader, Empty, Skeleton } from "antd";
 import AnalyticGraphs from "./AnalyticGraphs";
