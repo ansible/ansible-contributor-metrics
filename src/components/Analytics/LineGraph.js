@@ -8,8 +8,7 @@ import { Popover, Tooltip } from "antd";
 import { Equation } from "react-equation";
 
 const LineGraph = ({ dataGroupedByMonth: data, label, heading }) => {
-  // console.log(totalOpenIssues);
-  console.log("DATA FROM GRAPH", data);
+  // console.log("DATA FROM GRAPH", data);
   const dataToPlot = {
     labels: data.map((item) => item.Month),
     datasets: [

@@ -48,8 +48,6 @@ const DataTable = ({
     prepareRow,
   } = tableInstance;
 
-  console.log("Total Count", totalCount);
-
   const { pageIndex, pageSize } = state;
 
   const { Option } = Select;

@@ -54,7 +54,6 @@ const ACPullRequests = ({ owner, repository }) => {
           <Skeleton />
         </div>
       )}
-      {console.log("PR Data Rendered", data)}
       {data && !loading && (
         <>
           <h2>Pull Requests Table</h2>

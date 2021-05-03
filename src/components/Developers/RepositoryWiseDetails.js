@@ -21,8 +21,6 @@ const RepositoryWiseDetails = ({ data }) => {
           const totalContributions =
             openIssues + closedIssues + openPRS + mergedPRS;
 
-          console.log("Total Contributions", totalContributions);
-
           return totalContributions ? (
             <div key={index} className="repository-wise-issue-pr-data">
               <h2>{repo}</h2>
