@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="header">
         <div className="logo">
           <img src={logo}></img>
-          <h2 style={{ fontWeight: "bold" }}> Networks Collection Metrics</h2>
+          <h2 style={{ fontWeight: "bold" }}> Content Collection Metrics</h2>
         </div>
         <div className="mobile-hidden">
           <Anchor targetOffset="50">

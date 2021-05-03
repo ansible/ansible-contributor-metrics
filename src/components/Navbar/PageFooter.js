@@ -8,7 +8,7 @@ const PageFooter = () => {
     <div>
       <div className="logo">
         <img src={logo} width="50" height="50"></img>
-        <p> Networks Collection Metrics</p>
+        <p> Content Collection Metrics</p>
       </div>
 
       <div className="social">
