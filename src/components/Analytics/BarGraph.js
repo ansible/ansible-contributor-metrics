@@ -1,8 +1,9 @@
+import { BarChartOutlined, InfoCircleFilled } from "@ant-design/icons";
+import { Tooltip } from "antd";
 import { Bar } from "react-chartjs-2";
 
 const BarGraph = ({ dataGroupedByMonth: data, label1, label2, heading }) => {
-  // console.log(totalOpen);
-  // console.log(data);
+  // console.log("DATA FROM GRAPH", data);
   const dataToPlot = {
     labels: data.map((item) => item.Month),
     datasets: [
@@ -57,8 +58,23 @@ const BarGraph = ({ dataGroupedByMonth: data, label1, label2, heading }) => {
     ],
   };
 
+  const contentForInfo = (
+    <div style={{ textAlign: "center" }}>
+      <p>
+        The {heading === "Issue Categories" ? "issues" : "pull requests"} bar
+        graph views the number of{" "}
+        {heading === "Issue Categories" ? "issues" : "pull requests"} with
+        'open' or {heading === "Issue Categories" ? "'closed'" : "'merged'"}{" "}
+        status in a specific repository over a period of 15 months.
+      </p>
+    </div>
+  );
+
   return (
     <div className="chart-bar">
+      <Tooltip title={contentForInfo}>
+        <BarChartOutlined />
+      </Tooltip>
       <h3>{heading}</h3>
       <Bar data={dataToPlot} />
     </div>

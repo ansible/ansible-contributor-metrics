@@ -20,8 +20,8 @@ const Navbar = () => {
     <div className="navbar">
       <div className="header">
         <div className="logo">
-          <img src={logo} width="50" height="50"></img>
-          <h2 style={{ fontWeight: "bold" }}> Networks Collection Metrics</h2>
+          <img src={logo}></img>
+          <h2 style={{ fontWeight: "bold" }}> Content Collection Metrics</h2>
         </div>
         <div className="mobile-hidden">
           <Anchor targetOffset="50">

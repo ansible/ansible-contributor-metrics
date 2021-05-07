@@ -58,7 +58,10 @@ const Developers = () => {
             drawerStyle={{ backgroundColor: "#3d5861" }}
           >
             <div className="dev-list-mobile">
-              <DeveloperList developerCallback={developerCallback} />
+              <DeveloperList
+                developerCallback={developerCallback}
+                drawerClose={onClose}
+              />
             </div>
           </Drawer>
         </div>

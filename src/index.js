@@ -11,6 +11,7 @@ import {
   HttpLink,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
+import { relayStylePagination } from "@apollo/client/utilities";
 
 const httpLink = new HttpLink({
   // uri: `"${process.env.REACT_APP_GITHUB_URL}"`,
@@ -32,7 +33,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     console.log(`[Network error]: ${networkError}`);
   }
 
-  message.error("Something's wrong with your network");
+  message.error("Something went wrong");
 });
 
 const client = new ApolloClient({
@@ -41,10 +42,8 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
   document.getElementById("root")
 );

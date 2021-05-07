@@ -1,10 +1,18 @@
 import { useTable, useFilters, useSortBy, usePagination } from "react-table";
 import { Filter, DefaultColumnFilter } from "../../utils/filters";
-import { Empty, Input, Select } from "antd";
+import { Empty, Input, Select, Statistic, Typography } from "antd";
 import { Button } from "antd";
 import { BackwardOutlined, ForwardOutlined } from "@ant-design/icons";
+import moment from "moment";
 
-const DataTable = ({ title, tag, tableData, tableColumns }) => {
+const DataTable = ({
+  title,
+  tag,
+  repositoryName,
+  tableData,
+  totalCount,
+  tableColumns,
+}) => {
   // const columns = useMemo(() => COLUMNS, []);
   // const data = useMemo(() => issues, []);
 
@@ -44,12 +52,33 @@ const DataTable = ({ title, tag, tableData, tableColumns }) => {
 
   const { Option } = Select;
 
+  const { Link } = Typography;
+
   return (
     <>
-      <h2>{title}</h2>
-      <h3>
-        {tag}: {rows.length}
-      </h3>
+      {/* {totalCount === rows.length ? (
+        <p>
+          <em>( Fetched data since beginning )</em>
+        </p>
+      ) : null} */}
+
+      {/* <h3>
+        {tag}:{" "}
+        {rows.length === 100
+          ? rows.length.toString() + "+"
+          : rows.length.toString()}
+      </h3> */}
+
+      {/* <h3>
+        {tag}: {rows.length} of {totalCount}
+      </h3> */}
+
+      <Statistic
+        valueStyle={{ color: "#3d5861" }}
+        title={tag}
+        value={rows.length}
+        suffix={" of " + totalCount}
+      />
 
       {/* Boilerplate table code */}
       <table

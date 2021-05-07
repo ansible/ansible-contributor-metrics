@@ -47,6 +47,20 @@ svg {
   border: none;
 }
 
+.ant-btn-circle {
+  background-color: var(--secondary-color);
+}
+
+.ant-tag {
+  color: var(--primary-color);
+  background: #eceeef;
+  border-color: var(--primary-color);
+}
+
+a.ant-typography {
+  color: var(--primary-color);
+}
+
 /* ************************************************************************************** */
 /* header styles */
 /* ************************************************************************************** */
@@ -56,6 +70,15 @@ svg {
   margin: 0 auto;
   max-width: 100%;
   padding: 6px;
+}
+
+.navbar h2 {
+  font-size: 1.5em;
+}
+
+.navbar img {
+  width: 3.4em;
+  height: 3.4em;
 }
 
 .main-layout .ant-layout-header {
@@ -106,7 +129,7 @@ svg {
 }
 
 .header .ant-anchor-link-title {
-  font-size: 1.2em;
+  font-size: 1.2vw;
   color: var(--side-nav-background);
 }
 .header .ant-anchor-link-title:hover {
@@ -202,6 +225,14 @@ svg {
   background-color: var(--side-nav-background);
   border-top: var(--secondary-color) solid 4px;
   min-height: 279px;
+}
+
+.fetch-more-card {
+  background-color: var(--primary-color);
+}
+
+.fetch-more-card div {
+  color: var(--side-nav-background);
 }
 
 .tables {
@@ -306,6 +337,11 @@ svg {
   width: auto;
   /* margin: 10px 0px; */
 }
+.developer-list .ant-list {
+  margin-top: 10px;
+  height: 750px;
+  overflow: auto;
+}
 .developer-list p {
   margin: 6px 0px;
   width: auto;
@@ -318,7 +354,6 @@ svg {
 }
 .developer-list p:hover {
   color: var(--primary-color-light);
-  transform: scale(1.02);
 }
 
 .overall-info {
@@ -471,6 +506,11 @@ svg {
   width: auto;
   /* margin: 10px 0px; */
 }
+.repository-list .ant-list {
+  margin-top: 10px;
+  height: 750px;
+  overflow: auto;
+}
 .repository-list p {
   margin: 6px 0px;
   width: auto;
@@ -483,7 +523,6 @@ svg {
 }
 .repository-list p:hover {
   color: var(--primary-color-light);
-  transform: scale(1.02);
 }
 
 .overall-graphs {
@@ -509,8 +548,8 @@ svg {
   /* width: 100%;
   height: 100%; */
 }
-/* Doughnut Chart */
-.chart-doughnut {
+/* Pie Chart */
+.chart-pie {
   background-color: var(--side-nav-background);
   padding: 6px;
   margin: 6px;

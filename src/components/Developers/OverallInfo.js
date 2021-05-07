@@ -262,9 +262,9 @@ const OverallInfo = ({ selectedDeveloper }) => {
 
   return (
     <div className="overall-info">
-      {infoLoading && <p>Loading...</p>}
+      {infoLoading && <Skeleton />}
       {infoError && <p>{infoError}</p>}
-      {infoData && displayDetails()}
+      {infoData && !infoLoading && displayDetails()}
     </div>
   );
 };

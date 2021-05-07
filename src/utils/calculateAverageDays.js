@@ -2,7 +2,7 @@ import moment from "moment";
 
 export const calculateAverageDays = (data) => {
   let totalDaysDifference = 0;
-  data.map((item) => {
+  data.forEach((item) => {
     const startDate = moment(item.createdAt);
     const endDate = item.closedAt
       ? moment(item.closedAt)

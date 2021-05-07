@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import PageFooter from "./components/Navbar/PageFooter";
 import Collections from "./components/Collections/Collections";
@@ -20,6 +25,7 @@ function App() {
         </Header>
         <Content>
           <Switch>
+            <Redirect exact from="/" to="/collections" />
             <Route exact path={["/", "/collections"]}>
               <Collections />
             </Route>

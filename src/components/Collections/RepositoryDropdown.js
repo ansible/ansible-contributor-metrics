@@ -12,6 +12,7 @@ const RepositoryDropdown = ({ repositoryCallback }) => {
       <label>Repositories: </label>
       <Select
         onChange={(e) => repositoryCallback(e[1], e[0])}
+        showSearch
         defaultValue={
           JSON.parse(localStorage.getItem("collectionsRepository")).repo ||
           repositories[0].repo
