@@ -13,5 +13,7 @@ export const USERS = [
   "rohitthakur2590",
   "alinabuzachis",
   "GomathiselviS",
+  "priyamsahoo",
+  "KB-perByte",
   "trishnaguha",
 ];
