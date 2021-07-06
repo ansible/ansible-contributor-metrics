@@ -92,6 +92,10 @@ export const DateFilter = (props) => {
       moment().subtract(3, "months").startOf("day"),
       moment().endOf("day"),
     ],
+    "Past 6 months": [
+      moment().subtract(6, "months").startOf("day"),
+      moment().endOf("day"),
+    ],
   };
 
   useEffect(() => {
