@@ -15,6 +15,7 @@ import AnalyticGraphs from "./AnalyticGraphs";
 import { ISSUES_AND_PRS_MONTHLY } from "../../queries/analytics_monthwise_stats";
 import { separateAndSplitData } from "../../utils/separateAndSplitData";
 import { Spin, Alert } from "antd";
+import { COMMUNITY_CONTRIBUTIONS } from "../../queries/analytics_community_contribution_stats";
 
 const RepositoryAnalytics = ({ owner, repository }) => {
   // ************************
@@ -75,6 +76,18 @@ const RepositoryAnalytics = ({ owner, repository }) => {
   // ************************
   // ************************
 
+  // Query for community contribution KPI
+
+  const {
+    loading: communityContributionLoading,
+    error: communityContributionError,
+    data: communityContributionData,
+  } = useQuery(COMMUNITY_CONTRIBUTIONS(`${owner}/${repository}`));
+
+  // if (communityContributionData && !communityContributionLoading) {
+  //   console.log("Community Result", communityContributionData);
+  // }
+
   return (
     <div className="repository-analytics">
       <PageHeader
@@ -92,7 +105,9 @@ const RepositoryAnalytics = ({ owner, repository }) => {
         averageDataData &&
         !averageDataLoading &&
         monthlyStatData &&
-        !monthlyStatLoading && (
+        !monthlyStatLoading &&
+        communityContributionData &&
+        !communityContributionLoading && (
           <AnalyticGraphs
             totalOpenIssueCount={totalOpenIssueCount}
             totalCloseIssueCount={totalCloseIssueCount}

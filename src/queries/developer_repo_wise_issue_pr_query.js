@@ -101,7 +101,7 @@ const DEVELOPER_REPO_WISE_ISSUE_PR = (selectedDeveloper) => {
 
     `;
 
-  // console.log("Query String", innerQuery(selectedDeveloper));
+  console.log("Community Contribution", innerQuery(selectedDeveloper));
 
   return gql`
     ${query}
