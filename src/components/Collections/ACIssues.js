@@ -26,7 +26,6 @@ const ACIssues = ({ owner, repository }) => {
     variables: { repositoryName: repository, ownerName: owner, cursor: null },
     fetchPolicy: "network-only",
   });
-  console.log("Received data", data);
 
   const handleClick = () => {
     const { hasNextPage, endCursor } = data.repository.issues.pageInfo;
@@ -57,7 +56,6 @@ const ACIssues = ({ owner, repository }) => {
           <Skeleton />
         </div>
       )}
-      {console.log("ISSUE Data Rendered", data)}
       {data && !loading && (
         <>
           <h2>Issues Table</h2>
@@ -70,31 +68,6 @@ const ACIssues = ({ owner, repository }) => {
               flexWrap: "wrap",
             }}
           >
-            {data.repository.issues.totalCount ===
-            data.repository.issues.edges.length ? (
-              <Card
-                hoverable
-                style={{
-                  width: 200,
-                  height: 70,
-                  // flexGrow: 4,
-                  marginLeft: 5,
-                  marginRight: 5,
-                }}
-              >
-                <div style={{ display: "flex", flexDirection: "row" }}>
-                  <CheckCircleFilled
-                    style={{ fontSize: 42, flexGrow: 1, color: "#3d5861" }}
-                  />
-                  <div style={{ flexGrow: 1 }}>
-                    Fetched all data:
-                    <br />
-                    {data.repository.issues.totalCount} issues
-                  </div>
-                </div>
-              </Card>
-            ) : null}
-
             <Card
               hoverable
               style={{
@@ -134,36 +107,63 @@ const ACIssues = ({ owner, repository }) => {
               </div>
             </Card>
 
-            <Card
-              className="fetch-more-card"
-              style={{
-                width: 200,
-                height: 70,
-                // flexGrow: 4,
-                marginLeft: 5,
-                marginRight: 5,
-              }}
-            >
-              <div
+            {data.repository.issues.totalCount ===
+            data.repository.issues.edges.length ? (
+              <Card
+                hoverable
                 style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "baseline",
+                  width: 200,
+                  height: 70,
+                  // flexGrow: 4,
+                  marginLeft: 5,
+                  marginRight: 5,
                 }}
               >
-                {/* <Tooltip title="Fetch more data" placement="bottom"> */}
-                <Button
-                  style={{ width: 44, height: 44 }}
-                  shape="circle"
-                  disabled={!data.repository.issues.pageInfo.hasNextPage}
-                  onClick={handleClick}
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                  <CheckCircleFilled
+                    style={{ fontSize: 42, flexGrow: 1, color: "#3d5861" }}
+                  />
+                  <div style={{ flexGrow: 1 }}>
+                    Fetched all data:
+                    <br />
+                    {data.repository.issues.totalCount} issues
+                  </div>
+                </div>
+              </Card>
+            ) : null}
+
+            {data.repository.issues.pageInfo.hasNextPage ? (
+              <Card
+                className="fetch-more-card"
+                style={{
+                  width: 200,
+                  height: 70,
+                  // flexGrow: 4,
+                  marginLeft: 5,
+                  marginRight: 5,
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "baseline",
+                  }}
                 >
-                  <DesktopDownloadIcon />
-                </Button>
-                <div style={{ flexGrow: 1 }}>Fetch More Data</div>
-              </div>
-              {/* </Tooltip> */}
-            </Card>
+                  {/* <Tooltip title="Fetch more data" placement="bottom"> */}
+                  <Button
+                    style={{ width: 44, height: 44 }}
+                    shape="circle"
+                    // disabled={!data.repository.issues.pageInfo.hasNextPage}
+                    onClick={handleClick}
+                  >
+                    <DesktopDownloadIcon />
+                  </Button>
+                  <div style={{ flexGrow: 1 }}>Fetch More Data</div>
+                </div>
+                {/* </Tooltip> */}
+              </Card>
+            ) : null}
           </div>
 
           <DataTable
