@@ -20,9 +20,18 @@ const AnalyticGraphs = ({
   averageDaysPRMerged,
   issuesStatData,
   prsStatData,
+  communityIssues,
+  nonCommunityIssues,
+  communityPRs,
+  nonCommunityPRs,
 }) => {
   // console.log("FROMANALYTICS", issuesStatData);
   // console.log("FROMANALYTICS", prsStatData);
+
+  console.log("Community Issues", communityIssues);
+  console.log("Non community Issues", nonCommunityIssues);
+  console.log("Community PRs", communityPRs);
+  console.log("Non community PRs", nonCommunityPRs);
 
   const contentForPRInfo = (
     <div style={{ textAlign: "center" }}>

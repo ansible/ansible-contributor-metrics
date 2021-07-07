@@ -86,6 +86,14 @@ const RepositoryAnalytics = ({ owner, repository }) => {
 
   // if (communityContributionData && !communityContributionLoading) {
   //   console.log("Community Result", communityContributionData);
+  //   console.log(
+  //     "Community Result Keys",
+  //     Object.keys(communityContributionData)
+  //   );
+  //   console.log(
+  //     "Community Issues",
+  //     communityContributionData.COMMUNITY_ISSUES.issueCount
+  //   );
   // }
 
   return (
@@ -117,6 +125,16 @@ const RepositoryAnalytics = ({ owner, repository }) => {
             averageDaysPRMerged={averageDaysPRMerged}
             issuesStatData={statData.issuesStatSplit}
             prsStatData={statData.prsStatSplit}
+            communityIssues={
+              communityContributionData.COMMUNITY_ISSUES.issueCount
+            }
+            nonCommunityIssues={
+              communityContributionData.NON_COMMUNITY_ISSUES.issueCount
+            }
+            communityPRs={communityContributionData.COMMUNITY_PRS.issueCount}
+            nonCommunityPRs={
+              communityContributionData.NON_COMMUNITY_PRS.issueCount
+            }
           />
         )}
     </div>
