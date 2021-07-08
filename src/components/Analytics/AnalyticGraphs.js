@@ -84,15 +84,17 @@ const AnalyticGraphs = ({
               />
             )} */}
             <h1>Community Contributions (PRs)</h1>
-            <h3>Total PRs: {communityContributionData.ALL_PRS.issueCount}</h3>
+            <h3>
+              Total PRs: {communityContributionData.OVERALL_ALL_PRS.issueCount}
+            </h3>
             <h3>
               Community PRs:{" "}
-              {communityContributionData.ALL_PRS.issueCount -
-                communityContributionData.NON_COMMUNITY_PRS.issueCount}
+              {communityContributionData.OVERALL_ALL_PRS.issueCount -
+                communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount}
             </h3>
             <h3>
               Non community PRs:{" "}
-              {communityContributionData.NON_COMMUNITY_PRS.issueCount}
+              {communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount}
             </h3>
           </Col>
         </Row>

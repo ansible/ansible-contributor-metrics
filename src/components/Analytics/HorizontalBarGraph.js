@@ -3,6 +3,7 @@ import { Select, Tooltip } from "antd";
 import moment from "moment";
 import { HorizontalBar } from "react-chartjs-2";
 import { useState } from "react";
+import { useEffect } from "react/cjs/react.production.min";
 
 const HorizontalBarGraph = ({ heading, communityContributionData }) => {
   // console.log(
@@ -26,6 +27,129 @@ const HorizontalBarGraph = ({ heading, communityContributionData }) => {
 
   const [date, setDate] = useState("overall");
 
+  // const [allIssues, setAllIssues] = useState(
+  //   communityContributionData.OVERALL_ALL_ISSUES.issueCount
+  // );
+  // const [nonCommunityIssues, setNonCommunityIssues] = useState(
+  //   communityContributionData.OVERALL_NON_COMMUNITY_ISSUES.issueCount
+  // );
+  // const [allPRs, setAllPRs] = useState(
+  //   communityContributionData.OVERALL_ALL_PRS.issueCount
+  // );
+  // const [nonCommunityPRs, setNonCommunityPRs] = useState(
+  //   communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount
+  // );
+  // switch (date) {
+  //   case "overall":
+  //     setAllIssues(communityContributionData.OVERALL_ALL_ISSUES.issueCount);
+  //     setNonCommunityIssues(
+  //       communityContributionData.OVERALL_NON_COMMUNITY_ISSUES.issueCount
+  //     );
+  //     setAllPRs(communityContributionData.OVERALL_ALL_PRS.issueCount);
+  //     setNonCommunityPRs(
+  //       communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount
+  //     );
+  //     break;
+
+  //   case "lastMonth":
+  //     setAllIssues(communityContributionData.LAST_MONTH_ALL_ISSUES.issueCount);
+  //     setNonCommunityIssues(
+  //       communityContributionData.LAST_MONTH_NON_COMMUNITY_ISSUES.issueCount
+  //     );
+  //     setAllPRs(communityContributionData.LAST_MONTH_ALL_PRS.issueCount);
+  //     setNonCommunityPRs(
+  //       communityContributionData.LAST_MONTH_NON_COMMUNITY_PRS.issueCount
+  //     );
+  //     break;
+
+  //   case "lastSixMonth":
+  //     setAllIssues(
+  //       communityContributionData.LAST_SIX_MONTHS_ALL_ISSUES.issueCount
+  //     );
+  //     setNonCommunityIssues(
+  //       communityContributionData.LAST_SIX_MONTHS_NON_COMMUNITY_ISSUES
+  //         .issueCount
+  //     );
+  //     setAllPRs(communityContributionData.LAST_SIX_MONTHS_ALL_PRS.issueCount);
+  //     setNonCommunityPRs(
+  //       communityContributionData.LAST_SIX_MONTHS_NON_COMMUNITY_PRS.issueCount
+  //     );
+  //     break;
+
+  //   case "lastYear":
+  //     setAllIssues(communityContributionData.LAST_YEAR_ALL_ISSUES.issueCount);
+  //     setNonCommunityIssues(
+  //       communityContributionData.LAST_YEAR_NON_COMMUNITY_ISSUES.issueCount
+  //     );
+  //     setAllPRs(communityContributionData.LAST_YEAR_ALL_PRS.issueCount);
+  //     setNonCommunityPRs(
+  //       communityContributionData.LAST_YEAR_NON_COMMUNITY_PRS.issueCount
+  //     );
+  //     break;
+
+  //   default:
+  //     break;
+  // }
+
+  let allIssues = communityContributionData.OVERALL_ALL_ISSUES.issueCount;
+  let nonCommunityIssues =
+    communityContributionData.OVERALL_NON_COMMUNITY_ISSUES.issueCount;
+  let allPRs = communityContributionData.OVERALL_ALL_PRS.issueCount;
+  let nonCommunityPRs =
+    communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount;
+
+  switch (date) {
+    case "overall":
+      allIssues = communityContributionData.OVERALL_ALL_ISSUES.issueCount;
+      nonCommunityIssues =
+        communityContributionData.OVERALL_NON_COMMUNITY_ISSUES.issueCount;
+      allPRs = communityContributionData.OVERALL_ALL_PRS.issueCount;
+      nonCommunityPRs =
+        communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount;
+      break;
+
+    case "lastMonth":
+      allIssues = communityContributionData.LAST_MONTH_ALL_ISSUES.issueCount;
+      nonCommunityIssues =
+        communityContributionData.LAST_MONTH_NON_COMMUNITY_ISSUES.issueCount;
+      allPRs = communityContributionData.LAST_MONTH_ALL_PRS.issueCount;
+      nonCommunityPRs =
+        communityContributionData.LAST_MONTH_NON_COMMUNITY_PRS.issueCount;
+      break;
+
+    case "lastSixMonth":
+      allIssues =
+        communityContributionData.LAST_SIX_MONTHS_ALL_ISSUES.issueCount;
+      nonCommunityIssues =
+        communityContributionData.LAST_SIX_MONTHS_NON_COMMUNITY_ISSUES
+          .issueCount;
+      allPRs = communityContributionData.LAST_SIX_MONTHS_ALL_PRS.issueCount;
+      nonCommunityPRs =
+        communityContributionData.LAST_SIX_MONTHS_NON_COMMUNITY_PRS.issueCount;
+      break;
+
+    case "lastYear":
+      allIssues = communityContributionData.LAST_YEAR_ALL_ISSUES.issueCount;
+      nonCommunityIssues =
+        communityContributionData.LAST_YEAR_NON_COMMUNITY_ISSUES.issueCount;
+      allPRs = communityContributionData.LAST_YEAR_ALL_PRS.issueCount;
+      nonCommunityPRs =
+        communityContributionData.LAST_YEAR_NON_COMMUNITY_PRS.issueCount;
+      break;
+
+    default:
+      break;
+  }
+
+  // useEffect(() => {
+  //   allIssues = communityContributionData.OVERALL_ALL_ISSUES.issueCount;
+  //   nonCommunityIssues =
+  //     communityContributionData.OVERALL_NON_COMMUNITY_ISSUES.issueCount;
+  //   allPRs = communityContributionData.OVERALL_ALL_PRS.issueCount;
+  //   nonCommunityPRs =
+  //     communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount;
+  // }, []);
+
   const dataToPlot = {
     labels: ["Issues", "PRs"],
     datasets: [
@@ -34,22 +158,14 @@ const HorizontalBarGraph = ({ heading, communityContributionData }) => {
         backgroundColor: "rgb(176,142,162,0.4)",
         borderColor: "rgb(176,142,162,1)",
         borderWidth: 2,
-        data: [
-          communityContributionData.ALL_ISSUES.issueCount -
-            communityContributionData.NON_COMMUNITY_ISSUES.issueCount,
-          communityContributionData.ALL_PRS.issueCount -
-            communityContributionData.NON_COMMUNITY_PRS.issueCount,
-        ],
+        data: [allIssues - nonCommunityIssues, allPRs - nonCommunityPRs],
       },
       {
         label: "Non Community",
         backgroundColor: "rgb(255,166,48,0.4)",
         borderColor: "rgb(255,166,48,1)",
         borderWidth: 2,
-        data: [
-          communityContributionData.NON_COMMUNITY_ISSUES.issueCount,
-          communityContributionData.NON_COMMUNITY_PRS.issueCount,
-        ],
+        data: [nonCommunityIssues, nonCommunityPRs],
       },
     ],
   };
@@ -91,11 +207,16 @@ const HorizontalBarGraph = ({ heading, communityContributionData }) => {
   const contentForInfo = (
     <div style={{ textAlign: "center" }}>
       <p>
-        The {heading === "Issue Categories" ? "issues" : "pull requests"} bar
-        graph views the number of{" "}
-        {heading === "Issue Categories" ? "issues" : "pull requests"} with
-        'open' or {heading === "Issue Categories" ? "'closed'" : "'merged'"}{" "}
-        status in a specific repository over a period of 15 months.
+        The bar graph is the representation of the community and non-community
+        contributions in terms of issues and PRs.
+      </p>
+      <p>
+        1. <b>non-community contributions</b> &rarr; contributions by the team
+        members
+      </p>
+      <p>
+        2. <b>community contributions</b> &rarr; contributions by non-team
+        members
       </p>
     </div>
   );
@@ -109,7 +230,7 @@ const HorizontalBarGraph = ({ heading, communityContributionData }) => {
       </Tooltip>
       <h3>{heading}</h3>
       <Select
-        style={{ width: 120 }}
+        style={{ width: 150 }}
         size="small"
         defaultValue={"overall"}
         onChange={(e) => {
@@ -122,7 +243,7 @@ const HorizontalBarGraph = ({ heading, communityContributionData }) => {
         <Option value="lastSixMonths">Last 6 months</Option>
         <Option value="lastYear">Last year</Option>
       </Select>
-      <h4>{date}</h4>
+      <br />
       <HorizontalBar data={dataToPlot} options={options} />
     </div>
   );
