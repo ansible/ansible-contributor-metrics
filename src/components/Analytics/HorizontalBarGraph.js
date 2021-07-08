@@ -52,16 +52,17 @@ const HorizontalBarGraph = ({ heading, communityContributionData }) => {
   const options = {
     tooltips: {
       callbacks: {
-        // label: function (tooltipItem, data) {
-        //   var dataset = data.datasets[tooltipItem.datasetIndex];
-        //   // var meta = dataset._meta[Object.keys(dataset._meta)[0]];
-        //   var total = allData;
-        //   var currentValue = dataset.data[tooltipItem.index];
-        //   var percentage = parseFloat(
-        //     ((currentValue / total) * 100).toFixed(1)
-        //   );
-        //   return currentValue + " (" + percentage + "%)";
-        // },
+        label: function (tooltipItem, data) {
+          var dataset = data.datasets[tooltipItem.datasetIndex];
+          var totalIssues = data.datasets[0].data[0] + data.datasets[1].data[0];
+          var totalPRs = data.datasets[0].data[1] + data.datasets[1].data[1];
+          var total = [totalIssues, totalPRs];
+          var currentValue = dataset.data[tooltipItem.index];
+          var percentage = parseFloat(
+            ((currentValue / total[tooltipItem.index]) * 100).toFixed(1)
+          );
+          return currentValue + " (" + percentage + "%)";
+        },
         title: function (tooltipItem, data) {
           return data.labels[tooltipItem[0].index];
         },
