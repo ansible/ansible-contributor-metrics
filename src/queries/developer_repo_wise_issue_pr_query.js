@@ -5,13 +5,13 @@ import { REPOSITORIES } from "../data/repositories";
 Query structure that is built dynamically:
 
 query {
-    REPOSITORY_OPEN_ISSUE: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:issue is:open", last: 100) {
+    REPOSITORY_OPEN_ISSUE: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:issue", last: 100) {
       issueCount
     }
     REPOSITORY_CLOSED_ISSUE: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:issue is:closed", last: 100) {
       issueCount
     }
-    REPOSITORY_OPEN_PR: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:pr is:open", last: 100) {
+    REPOSITORY_OPEN_PR: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:pr", last: 100) {
       issueCount
     }
     REPOSITORY_CLOSED_PR: search(type: ISSUE, query: "repo:{__org__/__repo__} author:{__selectedDeveloper__} type:pr is:merged", last: 100) {
@@ -23,13 +23,13 @@ query {
 const removeSpecialCharacters = (str) => str.replace(/[^a-zA-Z0-9 ]/g, "");
 
 const open_pr_qs = (repo, owner, selectedDeveloper) =>
-  `"repo:${owner}/${repo} type:pr is:open author:${selectedDeveloper}"`;
+  `"repo:${owner}/${repo} type:pr author:${selectedDeveloper}"`;
 
 const merged_pr_qs = (repo, owner, selectedDeveloper) =>
   `"repo:${owner}/${repo} type:pr is:merged author:${selectedDeveloper}"`;
 
 const open_issue_qs = (repo, owner, selectedDeveloper) =>
-  `"repo:${owner}/${repo} type:issue is:open author:${selectedDeveloper}"`;
+  `"repo:${owner}/${repo} type:issue author:${selectedDeveloper}"`;
 
 const closed_issue_qs = (repo, owner, selectedDeveloper) =>
   `"repo:${owner}/${repo} type:issue is:closed author:${selectedDeveloper}"`;
