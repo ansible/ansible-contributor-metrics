@@ -1,26 +1,31 @@
 import { RadarChartOutlined } from "@ant-design/icons";
-import { Tooltip } from "antd";
+import { Select, Tooltip } from "antd";
+import moment from "moment";
 import { HorizontalBar } from "react-chartjs-2";
+import { useState } from "react";
 
 const HorizontalBarGraph = ({ heading, communityContributionData }) => {
-  console.log(
-    "Issues-comm",
-    communityContributionData.ALL_ISSUES.issueCount -
-      communityContributionData.NON_COMMUNITY_ISSUES.issueCount
-  );
-  console.log(
-    "Issues-noncomm",
-    communityContributionData.NON_COMMUNITY_ISSUES.issueCount
-  );
-  console.log(
-    "PRs-comm",
-    communityContributionData.ALL_PRS.issueCount -
-      communityContributionData.NON_COMMUNITY_PRS.issueCount
-  );
-  console.log(
-    "PRs-noncomm",
-    communityContributionData.NON_COMMUNITY_PRS.issueCount
-  );
+  // console.log(
+  //   "Issues-comm",
+  //   communityContributionData.ALL_ISSUES.issueCount -
+  //     communityContributionData.NON_COMMUNITY_ISSUES.issueCount
+  // );
+  // console.log(
+  //   "Issues-noncomm",
+  //   communityContributionData.NON_COMMUNITY_ISSUES.issueCount
+  // );
+  // console.log(
+  //   "PRs-comm",
+  //   communityContributionData.ALL_PRS.issueCount -
+  //     communityContributionData.NON_COMMUNITY_PRS.issueCount
+  // );
+  // console.log(
+  //   "PRs-noncomm",
+  //   communityContributionData.NON_COMMUNITY_PRS.issueCount
+  // );
+
+  const [date, setDate] = useState("overall");
+
   const dataToPlot = {
     labels: ["Issues", "PRs"],
     datasets: [
@@ -95,12 +100,29 @@ const HorizontalBarGraph = ({ heading, communityContributionData }) => {
     </div>
   );
 
+  const { Option } = Select;
+
   return (
     <div className="chart-bar">
       <Tooltip title={contentForInfo}>
         <RadarChartOutlined />
       </Tooltip>
       <h3>{heading}</h3>
+      <Select
+        style={{ width: 120 }}
+        size="small"
+        defaultValue={"overall"}
+        onChange={(e) => {
+          // console.log(e);
+          setDate(e);
+        }}
+      >
+        <Option value="overall">Overall</Option>
+        <Option value="lastMonth">Last month</Option>
+        <Option value="lastSixMonths">Last 6 months</Option>
+        <Option value="lastYear">Last year</Option>
+      </Select>
+      <h4>{date}</h4>
       <HorizontalBar data={dataToPlot} options={options} />
     </div>
   );
