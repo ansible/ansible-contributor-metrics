@@ -67,14 +67,6 @@ const AnalyticGraphs = ({
       <div className="analytic-graphs">
         <Row>
           <Col span={12}>
-            {communityContributionData && (
-              <HorizontalBarGraph
-                heading={"Community contributions"}
-                communityContributionData={communityContributionData}
-              />
-            )}
-          </Col>
-          <Col span={12}>
             {/* {prsStatData && (
               <BarGraph
                 dataGroupedByMonth={prsStatData}
@@ -96,6 +88,14 @@ const AnalyticGraphs = ({
               Non community PRs:{" "}
               {communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount}
             </h3>
+          </Col>
+          <Col span={12}>
+            {communityContributionData && (
+              <HorizontalBarGraph
+                heading={"Community contributions"}
+                communityContributionData={communityContributionData}
+              />
+            )}
           </Col>
         </Row>
         <Row>
