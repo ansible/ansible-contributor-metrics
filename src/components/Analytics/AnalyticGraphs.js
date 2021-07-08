@@ -11,6 +11,8 @@ import {
   PullRequestOutlined,
 } from "@ant-design/icons";
 import { Equation } from "react-equation";
+import PolarAreaChart from "./HorizontalBarGraph";
+import HorizontalBarGraph from "./HorizontalBarGraph";
 const AnalyticGraphs = ({
   totalOpenIssueCount,
   totalCloseIssueCount,
@@ -20,18 +22,19 @@ const AnalyticGraphs = ({
   averageDaysPRMerged,
   issuesStatData,
   prsStatData,
-  communityIssues,
-  nonCommunityIssues,
-  communityPRs,
-  nonCommunityPRs,
+  // nonCommunityIssues,
+  // allIssues,
+  // nonCommunityPRs,
+  // allPRs,
+  communityContributionData,
 }) => {
   // console.log("FROMANALYTICS", issuesStatData);
   // console.log("FROMANALYTICS", prsStatData);
 
-  console.log("Community Issues", communityIssues);
-  console.log("Non community Issues", nonCommunityIssues);
-  console.log("Community PRs", communityPRs);
-  console.log("Non community PRs", nonCommunityPRs);
+  // console.log("Non community Issues", nonCommunityIssues);
+  // console.log("All Issues", allIssues);
+  // console.log("Non community PRs", nonCommunityPRs);
+  // console.log("All PRs", allPRs);
 
   const contentForPRInfo = (
     <div style={{ textAlign: "center" }}>
@@ -62,6 +65,37 @@ const AnalyticGraphs = ({
   return (
     <>
       <div className="analytic-graphs">
+        <Row>
+          <Col span={12}>
+            {communityContributionData && (
+              <HorizontalBarGraph
+                heading={"Community contributions"}
+                communityContributionData={communityContributionData}
+              />
+            )}
+          </Col>
+          <Col span={12}>
+            {/* {prsStatData && (
+              <BarGraph
+                dataGroupedByMonth={prsStatData}
+                label1="Open PR"
+                label2="Merged PR"
+                heading="Pull Request Categories"
+              />
+            )} */}
+            <h1>Community Contributions (PRs)</h1>
+            <h3>Total PRs: {communityContributionData.ALL_PRS.issueCount}</h3>
+            <h3>
+              Community PRs:{" "}
+              {communityContributionData.ALL_PRS.issueCount -
+                communityContributionData.NON_COMMUNITY_PRS.issueCount}
+            </h3>
+            <h3>
+              Non community PRs:{" "}
+              {communityContributionData.NON_COMMUNITY_PRS.issueCount}
+            </h3>
+          </Col>
+        </Row>
         <Row>
           <Col span={12}>
             {issuesStatData && (

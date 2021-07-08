@@ -84,18 +84,6 @@ const RepositoryAnalytics = ({ owner, repository }) => {
     data: communityContributionData,
   } = useQuery(COMMUNITY_CONTRIBUTIONS(`${owner}/${repository}`));
 
-  // if (communityContributionData && !communityContributionLoading) {
-  //   console.log("Community Result", communityContributionData);
-  //   console.log(
-  //     "Community Result Keys",
-  //     Object.keys(communityContributionData)
-  //   );
-  //   console.log(
-  //     "Community Issues",
-  //     communityContributionData.COMMUNITY_ISSUES.issueCount
-  //   );
-  // }
-
   return (
     <div className="repository-analytics">
       <PageHeader
@@ -125,16 +113,15 @@ const RepositoryAnalytics = ({ owner, repository }) => {
             averageDaysPRMerged={averageDaysPRMerged}
             issuesStatData={statData.issuesStatSplit}
             prsStatData={statData.prsStatSplit}
-            communityIssues={
-              communityContributionData.COMMUNITY_ISSUES.issueCount
-            }
-            nonCommunityIssues={
-              communityContributionData.NON_COMMUNITY_ISSUES.issueCount
-            }
-            communityPRs={communityContributionData.COMMUNITY_PRS.issueCount}
-            nonCommunityPRs={
-              communityContributionData.NON_COMMUNITY_PRS.issueCount
-            }
+            communityContributionData={communityContributionData}
+            // nonCommunityIssues={
+            //   communityContributionData.NON_COMMUNITY_ISSUES.issueCount
+            // }
+            // allIssues={communityContributionData.ALL_ISSUES.issueCount}
+            // nonCommunityPRs={
+            //   communityContributionData.NON_COMMUNITY_PRS.issueCount
+            // }
+            // allPRs={communityContributionData.ALL_PRS.issueCount}
           />
         )}
     </div>

@@ -24,16 +24,16 @@ query {
 }
 */
 
-const pr_community = (selectedRepository, authorString, dateString) =>
+const pr_non_community = (selectedRepository, authorString, dateString) =>
   `"repo:${selectedRepository} ${authorString} type:pr created:${dateString}"`;
 
-const pr_non_community = (selectedRepository, dateString) =>
+const pr_all = (selectedRepository, dateString) =>
   `"repo:${selectedRepository} type:pr created:${dateString}"`;
 
-const issue_community = (selectedRepository, authorString, dateString) =>
+const issue_non_community = (selectedRepository, authorString, dateString) =>
   `"repo:${selectedRepository} ${authorString} type:issue created:${dateString}"`;
 
-const issue_non_community = (selectedRepository, dateString) =>
+const issue_all = (selectedRepository, dateString) =>
   `"repo:${selectedRepository} type:issue created:${dateString}"`;
 
 const MEMBERS = () => {
@@ -54,33 +54,30 @@ const DATE_RANGE = () => {
 
 const queryGenerator = (selectedRepository) => {
   let finalQuery = `
-        COMMUNITY_PRS: search(query: ${pr_community(
-          selectedRepository,
-          MEMBERS(),
-          DATE_RANGE()
-        )},
-        type: ISSUE) {
-          issueCount
-        }
-
         NON_COMMUNITY_PRS: search(query: ${pr_non_community(
           selectedRepository,
+          MEMBERS(),
           DATE_RANGE()
         )},
         type: ISSUE) {
           issueCount
         }
 
-        COMMUNITY_ISSUES: search(query: ${issue_community(
-          selectedRepository,
-          MEMBERS(),
-          DATE_RANGE()
-        )},
+        ALL_PRS: search(query: ${pr_all(selectedRepository, DATE_RANGE())},
         type: ISSUE) {
           issueCount
         }
 
         NON_COMMUNITY_ISSUES: search(query: ${issue_non_community(
+          selectedRepository,
+          MEMBERS(),
+          DATE_RANGE()
+        )},
+        type: ISSUE) {
+          issueCount
+        }
+
+        ALL_ISSUES: search(query: ${issue_all(
           selectedRepository,
           DATE_RANGE()
         )},
