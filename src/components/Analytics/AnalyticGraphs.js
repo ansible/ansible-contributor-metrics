@@ -66,29 +66,10 @@ const AnalyticGraphs = ({
     <>
       <div className="analytic-graphs">
         <Row>
-          <Col span={12}>
-            {/* {prsStatData && (
-              <BarGraph
-                dataGroupedByMonth={prsStatData}
-                label1="Open PR"
-                label2="Merged PR"
-                heading="Pull Request Categories"
-              />
-            )} */}
-            <h1>Community Contributions (PRs)</h1>
-            <h3>
-              Total PRs: {communityContributionData.OVERALL_ALL_PRS.issueCount}
+          {/* <Col span={12}>
+              // This space is reserved for a KPI (goes into the orientation with contribution kpi)
             </h3>
-            <h3>
-              Community PRs:{" "}
-              {communityContributionData.OVERALL_ALL_PRS.issueCount -
-                communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount}
-            </h3>
-            <h3>
-              Non community PRs:{" "}
-              {communityContributionData.OVERALL_NON_COMMUNITY_PRS.issueCount}
-            </h3>
-          </Col>
+          </Col> */}
           <Col span={12}>
             {communityContributionData && (
               <HorizontalBarGraph
@@ -206,6 +187,16 @@ const AnalyticGraphs = ({
       </div>
 
       <div className="analytic-graphs-mobile">
+        <Row>
+          <Col span={24}>
+            {communityContributionData && (
+              <HorizontalBarGraph
+                heading={"Community contributions"}
+                communityContributionData={communityContributionData}
+              />
+            )}
+          </Col>
+        </Row>
         <Row>
           <Col span={24}>
             {issuesStatData && (
