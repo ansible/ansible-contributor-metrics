@@ -68,7 +68,7 @@ const OverallInfo = ({ selectedDeveloper }) => {
       <div>
         {/* Developer's profile info */}
         <div className="profile-info">
-          <img src={infoData.user.avatarUrl}></img>
+          <img src={infoData.user.avatarUrl} alt="Developer Avatar"></img>
           <h1>
             <a
               href={infoData.user.url}

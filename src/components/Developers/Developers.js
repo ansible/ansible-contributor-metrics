@@ -1,11 +1,4 @@
-import {
-  CaretLeftOutlined,
-  CloseOutlined,
-  ImportOutlined,
-  LeftCircleOutlined,
-  UnorderedListOutlined,
-  VerticalRightOutlined,
-} from "@ant-design/icons";
+import { UnorderedListOutlined } from "@ant-design/icons";
 import { Button, Card, Drawer } from "antd";
 import { useState } from "react";
 import { USERS } from "../../data/users";

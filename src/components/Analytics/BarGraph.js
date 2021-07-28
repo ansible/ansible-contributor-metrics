@@ -1,4 +1,4 @@
-import { BarChartOutlined, InfoCircleFilled } from "@ant-design/icons";
+import { BarChartOutlined } from "@ant-design/icons";
 import { Tooltip } from "antd";
 import { Bar } from "react-chartjs-2";
 

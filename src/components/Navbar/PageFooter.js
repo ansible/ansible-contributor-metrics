@@ -1,13 +1,12 @@
-import Icon, { GithubOutlined, UpCircleOutlined } from "@ant-design/icons";
+import { GithubOutlined } from "@ant-design/icons";
 import { BackTop } from "antd";
-import { Link } from "react-router-dom";
 import logo from "../../assets/image.png";
 
 const PageFooter = () => {
   return (
     <div>
       <div className="logo">
-        <img src={logo} width="50" height="50"></img>
+        <img src={logo} width="50" height="50" alt="Logo"></img>
         <p> Content Collection Metrics</p>
       </div>
 

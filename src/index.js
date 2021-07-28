@@ -11,7 +11,6 @@ import {
   HttpLink,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import { relayStylePagination } from "@apollo/client/utilities";
 
 const httpLink = new HttpLink({
   // uri: `"${process.env.REACT_APP_GITHUB_URL}"`,

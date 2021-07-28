@@ -1,10 +1,6 @@
 import { Line } from "react-chartjs-2";
-import {
-  AreaChartOutlined,
-  InfoCircleFilled,
-  LineChartOutlined,
-} from "@ant-design/icons";
-import { Popover, Tooltip } from "antd";
+import { LineChartOutlined } from "@ant-design/icons";
+import { Tooltip } from "antd";
 import { Equation } from "react-equation";
 
 const LineGraph = ({ dataGroupedByMonth: data, label, heading }) => {

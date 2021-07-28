@@ -1,9 +1,8 @@
 import { useTable, useFilters, useSortBy, usePagination } from "react-table";
 import { Filter, DefaultColumnFilter } from "../../utils/filters";
-import { Empty, Input, Select, Statistic, Typography } from "antd";
+import { Empty, Input, Select, Statistic } from "antd";
 import { Button } from "antd";
 import { BackwardOutlined, ForwardOutlined } from "@ant-design/icons";
-import moment from "moment";
 
 const DataTable = ({
   title,
@@ -13,9 +12,6 @@ const DataTable = ({
   totalCount,
   tableColumns,
 }) => {
-  // const columns = useMemo(() => COLUMNS, []);
-  // const data = useMemo(() => issues, []);
-
   const columns = tableColumns;
   const data = tableData;
 
@@ -52,27 +48,8 @@ const DataTable = ({
 
   const { Option } = Select;
 
-  const { Link } = Typography;
-
   return (
     <>
-      {/* {totalCount === rows.length ? (
-        <p>
-          <em>( Fetched data since beginning )</em>
-        </p>
-      ) : null} */}
-
-      {/* <h3>
-        {tag}:{" "}
-        {rows.length === 100
-          ? rows.length.toString() + "+"
-          : rows.length.toString()}
-      </h3> */}
-
-      {/* <h3>
-        {tag}: {rows.length} of {totalCount}
-      </h3> */}
-
       <Statistic
         valueStyle={{ color: "#3d5861" }}
         title={tag}

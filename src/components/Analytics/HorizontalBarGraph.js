@@ -1,6 +1,5 @@
 import { RadarChartOutlined } from "@ant-design/icons";
 import { Select, Tooltip } from "antd";
-import moment from "moment";
 import { HorizontalBar } from "react-chartjs-2";
 import { useState } from "react";
 

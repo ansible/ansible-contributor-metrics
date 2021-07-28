@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import {
   ISSUES_AND_PR_AVERAGE,
   ISSUES_AND_PR_TOTAL_COUNT,
 } from "../../queries/analytics_queries";
-import { groupByMonth } from "../../utils/groupByMonth";
-import LineGraph from "./LineGraph";
-import { assembleData } from "../../utils/assemble-data";
-import BarGraph from "./BarGraph";
-import DoughnutGraph from "./DoughnutChart";
 import { calculateAverageDays } from "../../utils/calculateAverageDays";
-import { Row, Col, PageHeader, Empty, Skeleton } from "antd";
+import { PageHeader, Skeleton } from "antd";
 import AnalyticGraphs from "./AnalyticGraphs";
 import { ISSUES_AND_PRS_MONTHLY } from "../../queries/analytics_monthwise_stats";
 import { separateAndSplitData } from "../../utils/separateAndSplitData";
-import { Spin, Alert } from "antd";
 import { COMMUNITY_CONTRIBUTIONS } from "../../queries/analytics_community_contribution_stats";
 
 const RepositoryAnalytics = ({ owner, repository }) => {
@@ -23,6 +16,7 @@ const RepositoryAnalytics = ({ owner, repository }) => {
 
   const {
     loading: totalCountDataLoading,
+    // eslint-disable-next-line
     error: totalCountDataError,
     data: totalCountDataData,
   } = useQuery(ISSUES_AND_PR_TOTAL_COUNT, {
@@ -43,6 +37,7 @@ const RepositoryAnalytics = ({ owner, repository }) => {
 
   const {
     loading: averageDataLoading,
+    // eslint-disable-next-line
     error: averageDataError,
     data: averageDataData,
   } = useQuery(ISSUES_AND_PR_AVERAGE, {
@@ -65,6 +60,7 @@ const RepositoryAnalytics = ({ owner, repository }) => {
 
   const {
     loading: monthlyStatLoading,
+    // eslint-disable-next-line
     error: monthlyStatError,
     data: monthlyStatData,
   } = useQuery(ISSUES_AND_PRS_MONTHLY(`${owner}/${repository}`));
@@ -80,6 +76,7 @@ const RepositoryAnalytics = ({ owner, repository }) => {
 
   const {
     loading: communityContributionLoading,
+    // eslint-disable-next-line
     error: communityContributionError,
     data: communityContributionData,
   } = useQuery(COMMUNITY_CONTRIBUTIONS(`${owner}/${repository}`));
@@ -114,14 +111,6 @@ const RepositoryAnalytics = ({ owner, repository }) => {
             issuesStatData={statData.issuesStatSplit}
             prsStatData={statData.prsStatSplit}
             communityContributionData={communityContributionData}
-            // nonCommunityIssues={
-            //   communityContributionData.NON_COMMUNITY_ISSUES.issueCount
-            // }
-            // allIssues={communityContributionData.ALL_ISSUES.issueCount}
-            // nonCommunityPRs={
-            //   communityContributionData.NON_COMMUNITY_PRS.issueCount
-            // }
-            // allPRs={communityContributionData.ALL_PRS.issueCount}
           />
         )}
     </div>

@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { COLLECTION_INSIGHTS } from "../../queries/collections_queries";
 import { Row, Col, Statistic, Card, Divider, Tooltip, Skeleton } from "antd";
-import { ArrowUpOutlined, LoadingOutlined } from "@ant-design/icons";
+import { ArrowUpOutlined } from "@ant-design/icons";
 import {
   IssueOpenedIcon,
   IssueClosedIcon,

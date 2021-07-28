@@ -1,23 +1,10 @@
-import { InMemoryCache, useQuery } from "@apollo/client";
-import { Button, Card, Divider, Skeleton, Space, Tag, Typography } from "antd";
-import { useCallback } from "react";
+import { useQuery } from "@apollo/client";
+import { Button, Card, Skeleton } from "antd";
 import { ISSUES } from "../../queries/collections_queries";
 import DataTable from "./DataTable";
 import { ISSUE_COLUMNS } from "./IssueColumns";
 import moment from "moment";
-import { useEffect } from "react";
-import { relayStylePagination } from "@apollo/client/utilities";
-import {
-  CalendarFilled,
-  CalendarOutlined,
-  CarryOutFilled,
-  CheckCircleFilled,
-  CloudDownloadOutlined,
-  CloudServerOutlined,
-  DownloadOutlined,
-  SyncOutlined,
-} from "@ant-design/icons";
-import { Tooltip } from "antd";
+import { CalendarFilled, CheckCircleFilled } from "@ant-design/icons";
 import { DesktopDownloadIcon } from "@primer/octicons-react";
 
 const ACIssues = ({ owner, repository }) => {
@@ -45,8 +32,6 @@ const ACIssues = ({ owner, repository }) => {
       });
     }
   };
-
-  const { Link } = Typography;
 
   return (
     <div className="ac-issues">

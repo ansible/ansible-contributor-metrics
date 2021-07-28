@@ -4,7 +4,6 @@ import RepositoryAnalytics from "./RepositoryAnalytics";
 import { Button, Card, Drawer } from "antd";
 import { REPOSITORIES } from "../../data/repositories";
 import { UnorderedListOutlined } from "@ant-design/icons";
-import moment from "moment";
 
 const Analytics = () => {
   // Default repository is the first repository object in the REPOSITORIES list

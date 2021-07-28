@@ -2,16 +2,8 @@ import { Row, Col, Empty, Tooltip } from "antd";
 import LineGraph from "./LineGraph";
 import BarGraph from "./BarGraph";
 import DoughnutChart from "./DoughnutChart";
-import {
-  InfoCircleFilled,
-  FundOutlined,
-  AimOutlined,
-  CodeOutlined,
-  IssuesCloseOutlined,
-  PullRequestOutlined,
-} from "@ant-design/icons";
+import { IssuesCloseOutlined, PullRequestOutlined } from "@ant-design/icons";
 import { Equation } from "react-equation";
-import PolarAreaChart from "./HorizontalBarGraph";
 import HorizontalBarGraph from "./HorizontalBarGraph";
 const AnalyticGraphs = ({
   totalOpenIssueCount,
