@@ -26,7 +26,6 @@ const ACIssues = ({ owner, repository }) => {
     variables: { repositoryName: repository, ownerName: owner, cursor: null },
     fetchPolicy: "network-only",
   });
-  console.log("Received data", data);
 
   const handleClick = () => {
     const { hasNextPage, endCursor } = data.repository.issues.pageInfo;
@@ -57,7 +56,6 @@ const ACIssues = ({ owner, repository }) => {
           <Skeleton />
         </div>
       )}
-      {console.log("ISSUE Data Rendered", data)}
       {data && !loading && (
         <>
           <h2>Issues Table</h2>

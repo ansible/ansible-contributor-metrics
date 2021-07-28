@@ -15,7 +15,6 @@ const Collections = () => {
 
   const repositoryCallback = (owner, repo) => {
     setRepository({ owner: owner, repo: repo });
-    console.log(repository);
   };
 
   localStorage.setItem("collectionsRepository", JSON.stringify(repository));
