@@ -260,7 +260,7 @@ const COMMUNITY_CONTRIBUTIONS = (selectedRepository) => {
     
         `;
 
-  console.log("Query String", queryGenerator(selectedRepository));
+  // console.log("Query String", queryGenerator(selectedRepository));
 
   return gql`
     ${query}
