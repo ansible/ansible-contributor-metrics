@@ -674,6 +674,12 @@ a.ant-typography {
     display: none;
   }
 
+  .developer-list .ant-list {
+    margin-top: 10px;
+    height: 750px;
+    overflow: hidden;
+  }
+
   .dev-list-mobile {
     background-color: var(--primary-color);
     color: var(--side-nav-background);
@@ -691,6 +697,12 @@ a.ant-typography {
 
   .repo-list {
     display: none;
+  }
+
+  .repository-list .ant-list {
+    margin-top: 10px;
+    height: 750px;
+    overflow: hidden;
   }
 
   .repo-list-mobile {

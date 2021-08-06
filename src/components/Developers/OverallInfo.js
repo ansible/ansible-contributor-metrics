@@ -27,9 +27,9 @@ const OverallInfo = ({ selectedDeveloper }) => {
   );
 
   // constructing final query string for developer's overall contributions in all the repositories mentioned in the list
-  const issueOpenQueryString = `${repoQueryString} type:issue is:open author:${selectedDeveloper} updated:${dateQueryString}`;
+  const issueOpenQueryString = `${repoQueryString} type:issue author:${selectedDeveloper} updated:${dateQueryString}`;
   const issueClosedQueryString = `${repoQueryString} type:issue is:closed author:${selectedDeveloper} updated:${dateQueryString}`;
-  const prOpenQueryString = `${repoQueryString} type:pr is:open author:${selectedDeveloper} updated:${dateQueryString}`;
+  const prOpenQueryString = `${repoQueryString} type:pr author:${selectedDeveloper} updated:${dateQueryString}`;
   const prMergedQueryString = `${repoQueryString} type:pr is:merged author:${selectedDeveloper} updated:${dateQueryString}`;
   const totalContributionQueryString = `${repoQueryString} author:${selectedDeveloper} updated:${dateQueryString}`;
 
@@ -51,12 +51,13 @@ const OverallInfo = ({ selectedDeveloper }) => {
   // console.log(contributionData);
 
   // Query for obtaining selected developer's information
-  const { loading: infoLoading, error: infoError, data: infoData } = useQuery(
-    DEVELOPER_DETAILS,
-    {
-      variables: { userName: selectedDeveloper },
-    }
-  );
+  const {
+    loading: infoLoading,
+    error: infoError,
+    data: infoData,
+  } = useQuery(DEVELOPER_DETAILS, {
+    variables: { userName: selectedDeveloper },
+  });
 
   // console.log(dateQueryString);
 
@@ -67,7 +68,7 @@ const OverallInfo = ({ selectedDeveloper }) => {
       <div>
         {/* Developer's profile info */}
         <div className="profile-info">
-          <img src={infoData.user.avatarUrl}></img>
+          <img src={infoData.user.avatarUrl} alt="Developer Avatar"></img>
           <h1>
             <a
               href={infoData.user.url}
@@ -139,9 +140,7 @@ const OverallInfo = ({ selectedDeveloper }) => {
                       .toString()
                   }
                 >
-                  {`${moment()
-                    .month("Jan")
-                    .format("MMM 'YY")} - ${moment()
+                  {`${moment().month("Jan").format("MMM 'YY")} - ${moment()
                     .month("Mar")
                     .format("MMM 'YY")}`}
                 </Option>
@@ -160,9 +159,7 @@ const OverallInfo = ({ selectedDeveloper }) => {
                       .toString()
                   }
                 >
-                  {`${moment()
-                    .month("Apr")
-                    .format("MMM 'YY")} - ${moment()
+                  {`${moment().month("Apr").format("MMM 'YY")} - ${moment()
                     .month("Jun")
                     .format("MMM 'YY")}`}
                 </Option>
@@ -181,9 +178,7 @@ const OverallInfo = ({ selectedDeveloper }) => {
                       .toString()
                   }
                 >
-                  {`${moment()
-                    .month("Jul")
-                    .format("MMM 'YY")} - ${moment()
+                  {`${moment().month("Jul").format("MMM 'YY")} - ${moment()
                     .month("Sep")
                     .format("MMM 'YY")}`}
                 </Option>
@@ -202,9 +197,7 @@ const OverallInfo = ({ selectedDeveloper }) => {
                       .toString()
                   }
                 >
-                  {`${moment()
-                    .month("Oct")
-                    .format("MMM 'YY")} - ${moment()
+                  {`${moment().month("Oct").format("MMM 'YY")} - ${moment()
                     .month("Dec")
                     .format("MMM 'YY")}`}
                 </Option>

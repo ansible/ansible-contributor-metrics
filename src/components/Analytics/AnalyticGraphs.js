@@ -2,15 +2,9 @@ import { Row, Col, Empty, Tooltip } from "antd";
 import LineGraph from "./LineGraph";
 import BarGraph from "./BarGraph";
 import DoughnutChart from "./DoughnutChart";
-import {
-  InfoCircleFilled,
-  FundOutlined,
-  AimOutlined,
-  CodeOutlined,
-  IssuesCloseOutlined,
-  PullRequestOutlined,
-} from "@ant-design/icons";
+import { IssuesCloseOutlined, PullRequestOutlined } from "@ant-design/icons";
 import { Equation } from "react-equation";
+import HorizontalBarGraph from "./HorizontalBarGraph";
 const AnalyticGraphs = ({
   totalOpenIssueCount,
   totalCloseIssueCount,
@@ -20,9 +14,19 @@ const AnalyticGraphs = ({
   averageDaysPRMerged,
   issuesStatData,
   prsStatData,
+  // nonCommunityIssues,
+  // allIssues,
+  // nonCommunityPRs,
+  // allPRs,
+  communityContributionData,
 }) => {
   // console.log("FROMANALYTICS", issuesStatData);
   // console.log("FROMANALYTICS", prsStatData);
+
+  // console.log("Non community Issues", nonCommunityIssues);
+  // console.log("All Issues", allIssues);
+  // console.log("Non community PRs", nonCommunityPRs);
+  // console.log("All PRs", allPRs);
 
   const contentForPRInfo = (
     <div style={{ textAlign: "center" }}>
@@ -53,6 +57,20 @@ const AnalyticGraphs = ({
   return (
     <>
       <div className="analytic-graphs">
+        <Row>
+          {/* <Col span={12}>
+              // This space is reserved for a KPI (goes into the orientation with contribution kpi)
+            </h3>
+          </Col> */}
+          <Col span={12}>
+            {communityContributionData && (
+              <HorizontalBarGraph
+                heading={"Community contributions"}
+                communityContributionData={communityContributionData}
+              />
+            )}
+          </Col>
+        </Row>
         <Row>
           <Col span={12}>
             {issuesStatData && (
@@ -161,6 +179,16 @@ const AnalyticGraphs = ({
       </div>
 
       <div className="analytic-graphs-mobile">
+        <Row>
+          <Col span={24}>
+            {communityContributionData && (
+              <HorizontalBarGraph
+                heading={"Community contributions"}
+                communityContributionData={communityContributionData}
+              />
+            )}
+          </Col>
+        </Row>
         <Row>
           <Col span={24}>
             {issuesStatData && (

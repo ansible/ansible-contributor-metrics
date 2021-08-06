@@ -45,24 +45,26 @@ export const SelectColumnFilter = ({
   const { Option } = Select;
 
   return (
-    <Select
-      size="small"
-      style={{ width: 100 }}
-      id="custom-select"
-      type="select"
-      defaultValue="All"
-      // value={filterValue}
-      onChange={(e) => {
-        setFilter(e || undefined);
-      }}
-    >
-      <Option value="">All</Option>Option
-      {options.map((option) => (
-        <Option key={option} value={option}>
-          {option}
-        </Option>
-      ))}
-    </Select>
+    <>
+      <Select
+        size="small"
+        style={{ width: 100 }}
+        id="custom-select"
+        type="select"
+        defaultValue={"OPEN"}
+        // value={filterValue}
+        onChange={(e) => {
+          setFilter(e || undefined);
+        }}
+      >
+        <Option value="">All</Option>Option
+        {options.map((option) => (
+          <Option key={option} value={option}>
+            {option}
+          </Option>
+        ))}
+      </Select>
+    </>
   );
 };
 
@@ -100,6 +102,8 @@ export const DateFilter = (props) => {
 
   useEffect(() => {
     setFilter(filterByDate(defValue));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const filterByDate = (value) => {

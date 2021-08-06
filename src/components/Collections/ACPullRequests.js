@@ -1,20 +1,10 @@
 import { useQuery } from "@apollo/client";
 import moment from "moment";
-import { Button, Tag, Typography, Card, Skeleton } from "antd";
-import { useCallback } from "react";
+import { Button, Card, Skeleton } from "antd";
 import { PR } from "../../queries/collections_queries";
 import DataTable from "./DataTable";
 import { PR_COLUMNS } from "./PRColumns";
-import {
-  CalendarFilled,
-  CalendarOutlined,
-  CarryOutFilled,
-  CheckCircleFilled,
-  CloudDownloadOutlined,
-  CloudServerOutlined,
-  DownloadOutlined,
-  SyncOutlined,
-} from "@ant-design/icons";
+import { CalendarFilled, CheckCircleFilled } from "@ant-design/icons";
 import { DesktopDownloadIcon } from "@primer/octicons-react";
 
 const ACPullRequests = ({ owner, repository }) => {
@@ -43,8 +33,6 @@ const ACPullRequests = ({ owner, repository }) => {
       });
     }
   };
-
-  const { Link } = Typography;
 
   return (
     <div className="ac-pull-requests">

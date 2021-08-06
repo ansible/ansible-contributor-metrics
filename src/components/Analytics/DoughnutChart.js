@@ -1,8 +1,7 @@
-import { InfoCircleFilled, PieChartOutlined } from "@ant-design/icons";
+import { PieChartOutlined } from "@ant-design/icons";
 import { Tooltip } from "antd";
 import React from "react";
-import { Doughnut, Pie } from "react-chartjs-2";
-import { Equation } from "react-equation";
+import { Doughnut } from "react-chartjs-2";
 
 const DoughnutChart = ({ heading, label1, data1, label2, data2 }) => {
   // console.log("DOUGHNUT DATA", data1, data2);

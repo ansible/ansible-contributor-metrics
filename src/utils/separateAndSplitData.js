@@ -1,5 +1,4 @@
 import _ from "lodash";
-import moment from "moment";
 
 export const separateAndSplitData = (data) => {
   // console.log("DATA FROM FUNCTION", data);

@@ -3,7 +3,7 @@ import { RELEASES_AND_TAGS } from "../../queries/collections_queries";
 import moment from "moment";
 // import { Card } from "reactstrap";
 import { Card, Empty, Skeleton } from "antd";
-import { LoadingOutlined, TagsOutlined } from "@ant-design/icons";
+import { TagsOutlined } from "@ant-design/icons";
 
 const ReleasesAndTags = ({ owner, repository }) => {
   // Query for obtaining release-tags info

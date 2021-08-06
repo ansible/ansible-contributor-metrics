@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="header">
         <div className="logo">
-          <img src={logo}></img>
+          <img src={logo} alt="Logo"></img>
           <h2 style={{ fontWeight: "bold" }}> Content Collection Metrics</h2>
         </div>
         <div className="mobile-hidden">
@@ -34,7 +34,6 @@ const Navbar = () => {
           <Button
             size="small"
             icon={<MenuOutlined />}
-            size="small"
             onClick={showDrawer}
           ></Button>
           <Drawer

@@ -8,7 +8,6 @@ const { Sider } = Layout;
 
 export const RootSider = () => {
   const location = useLocation();
-  console.log("FROM ROOT SIDER", location);
   return (
     <Sider>
       {/*<CollectionSider />*/}
