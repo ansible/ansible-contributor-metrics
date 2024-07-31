@@ -1,4 +1,4 @@
-# ansible_content_collections_metrics
+# ansible-contributor-metrics
 
 The web application provides a dashboard in terms of factual metrics system for the github projects managed by Ansible for content collections.
 
